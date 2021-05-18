@@ -13,15 +13,15 @@ public class TodoApplication {
     public static void main(String[] args) {
         SpringApplication.run(TodoApplication.class, args);
     }
-
-    @Configuration
-    @EnableWebMvc
-    public class WebConfiguration implements WebMvcConfigurer {
-        @Override
-        public void addCorsMappings(CorsRegistry registry) {
-            registry.addMapping("/**").allowedOrigins("*");
-        }
-    }
+//
+//    @Configuration
+//    @EnableWebMvc
+//    public class WebConfiguration implements WebMvcConfigurer {
+//        @Override
+//        public void addCorsMappings(CorsRegistry registry) {
+//            registry.addMapping("/**").allowedOrigins("*");
+//        }
+//    }
 
 //    @Bean
 //    public WebMvcConfigurer corsConfigurer() {

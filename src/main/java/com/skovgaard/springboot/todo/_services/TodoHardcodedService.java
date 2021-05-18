@@ -3,10 +3,7 @@ package com.skovgaard.springboot.todo._services;
 import com.skovgaard.springboot.todo.Todo;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class TodoHardcodedService {
@@ -22,6 +19,26 @@ public class TodoHardcodedService {
 
     public List<Todo> findAll() {
         return todos;
+    }
+
+    public Todo deleteById(String id) {
+        Todo todo = findById(id);
+
+        if (todo != null) {
+            todos.remove(todo);
+            return todo;
+        } else {
+            return null;
+        }
+    }
+
+    public Todo findById(String id) {
+        for(Todo todo: todos) {
+            if (todo.getId().equals(id)) {
+                return todo;
+            }
+        }
+        return null;
     }
 
 }
