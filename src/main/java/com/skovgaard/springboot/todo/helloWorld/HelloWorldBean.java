@@ -1,4 +1,4 @@
-package com.skovgaard.springboot.todo;
+package com.skovgaard.springboot.todo.helloWorld;
 
 public class HelloWorldBean {
 
