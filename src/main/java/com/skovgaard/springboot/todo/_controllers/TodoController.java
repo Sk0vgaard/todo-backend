@@ -1,5 +1,6 @@
-package com.skovgaard.springboot.todo;
+package com.skovgaard.springboot.todo._controllers;
 
+import com.skovgaard.springboot.todo._models.Todo;
 import com.skovgaard.springboot.todo._services.TodoHardcodedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +14,7 @@ import java.util.Optional;
 import static java.util.Optional.ofNullable;
 
 @RestController
-public class TodoWebservice {
+public class TodoController {
 
     @Autowired
     private TodoHardcodedService todoHardcodedService;

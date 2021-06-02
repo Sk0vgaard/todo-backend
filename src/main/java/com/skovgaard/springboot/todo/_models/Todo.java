@@ -1,4 +1,4 @@
-package com.skovgaard.springboot.todo;
+package com.skovgaard.springboot.todo._models;
 
 import java.util.Date;
 import java.util.Objects;

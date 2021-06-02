@@ -1,6 +1,6 @@
 package com.skovgaard.springboot.todo._services;
 
-import com.skovgaard.springboot.todo.Todo;
+import com.skovgaard.springboot.todo._models.Todo;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
