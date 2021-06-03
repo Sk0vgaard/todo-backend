@@ -1,6 +1,6 @@
 package com.skovgaard.springboot.todo._services;
 
-import com.skovgaard.springboot.todo._models.Todo;
+import com.skovgaard.springboot.todo._models.TodoModel;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -8,21 +8,21 @@ import java.util.*;
 @Service
 public class TodoHardcodedService {
 
-    private static List<Todo> todos = new ArrayList<>();
+    private static List<TodoModel> todos = new ArrayList<>();
 
     static {
-        todos.add(new Todo(UUID.randomUUID().toString(), "Skovgaard", "Finish this course", new Date(), false));
-        todos.add(new Todo(UUID.randomUUID().toString(), "Rikke", "Cleaning", new Date(), false));
-        todos.add(new Todo(UUID.randomUUID().toString(), "Leonora", "Walk the dog", new Date(), false));
-        todos.add(new Todo(UUID.randomUUID().toString(), "Elvira", "Change diaper", new Date(), false));
+        todos.add(new TodoModel(UUID.randomUUID().toString(), "Skovgaard", "Finish this course", new Date(), false));
+        todos.add(new TodoModel(UUID.randomUUID().toString(), "Rikke", "Cleaning", new Date(), false));
+        todos.add(new TodoModel(UUID.randomUUID().toString(), "Leonora", "Walk the dog", new Date(), false));
+        todos.add(new TodoModel(UUID.randomUUID().toString(), "Elvira", "Change diaper", new Date(), false));
     }
 
-    public List<Todo> findAll() {
+    public List<TodoModel> findAll() {
         return todos;
     }
 
-    public Todo deleteById(String id) {
-        Todo todo = findById(id);
+    public TodoModel deleteById(String id) {
+        TodoModel todo = findById(id);
 
         if (todo != null) {
             todos.remove(todo);
@@ -32,8 +32,8 @@ public class TodoHardcodedService {
         }
     }
 
-    public Todo findById(String id) {
-        for(Todo todo: todos) {
+    public TodoModel findById(String id) {
+        for(TodoModel todo: todos) {
             if (todo.getId().equals(id)) {
                 return todo;
             }

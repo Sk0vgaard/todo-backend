@@ -3,14 +3,14 @@ package com.skovgaard.springboot.todo._models;
 import java.util.Date;
 import java.util.Objects;
 
-public class Todo {
+public class TodoModel {
     private String id;
     private String username;
     private String description;
     private Date targetDate;
     private boolean isDone;
 
-    public Todo(String id, String username, String description, Date targetDate, boolean isDone) {
+    public TodoModel(String id, String username, String description, Date targetDate, boolean isDone) {
         this.id = id;
         this.username = username;
         this.description = description;
@@ -62,7 +62,7 @@ public class Todo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Todo todo = (Todo) o;
+        TodoModel todo = (TodoModel) o;
         return Objects.equals(id, todo.id);
     }
 
