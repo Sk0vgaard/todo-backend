@@ -26,12 +26,12 @@ public class TodoController {
         return todoHardcodedService.findAll();
     }
 
-    @PutMapping("/users/{username}/todos")
+    @PostMapping("/users/{username}/todos")
     public TodoModel createTodo(@PathVariable String username) {
         return (TodoModel) todoHardcodedService.findAll();
     }
 
-    @PostMapping("/users/{username}/todos/{id}")
+    @PutMapping("/users/{username}/todos/{id}")
     public TodoModel updateTodo(@PathVariable String username, @PathVariable String id) {
         return todoHardcodedService.findById(id);
     }
