@@ -1,0 +1,146 @@
+openapi: 3.0.1
+
+info:
+  version: 0.0.1
+  title: Todo Service
+  description: The todo service
+
+servers:
+  - url: 'http://localhost:8080'
+    description: Generated server url
+paths:
+  '/users/{username}/todos':
+    get:
+      tags:
+        - todo-controller
+      operationId: getAllTodos
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                exampleSetFlag: false
+                items:
+                  $ref: '#/components/schemas/TodoModel'
+    put:
+      tags:
+        - todo-controller
+      operationId: createTodo
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TodoModel'
+  '/users/{username}/todos/{id}':
+    get:
+      tags:
+        - todo-controller
+      operationId: getTodo
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TodoModel'
+    post:
+      tags:
+        - todo-controller
+      operationId: updateTodo
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TodoModel'
+    delete:
+      tags:
+        - todo-controller
+      operationId: deleteTodo
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            exampleSetFlag: false
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TodoModel'
+components:
+  schemas:
+    TodoModel:
+      type: object
+      properties:
+        id:
+          type: string
+          exampleSetFlag: false
+        username:
+          type: string
+          exampleSetFlag: false
+        description:
+          type: string
+          exampleSetFlag: false
+        targetDate:
+          type: string
+          format: date-time
+          exampleSetFlag: false
+        done:
+          type: boolean
+          exampleSetFlag: false
+      exampleSetFlag: false
