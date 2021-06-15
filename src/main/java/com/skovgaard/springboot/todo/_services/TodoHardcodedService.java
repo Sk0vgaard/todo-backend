@@ -12,9 +12,9 @@ public class TodoHardcodedService {
 
     static {
         todos.add(new TodoModel(UUID.randomUUID().toString(), "Skovgaard", "Finish this course", new Date(), false));
-        todos.add(new TodoModel(UUID.randomUUID().toString(), "Rikke", "Cleaning", new Date(), false));
-        todos.add(new TodoModel(UUID.randomUUID().toString(), "Leonora", "Walk the dog", new Date(), false));
-        todos.add(new TodoModel(UUID.randomUUID().toString(), "Elvira", "Change diaper", new Date(), false));
+        todos.add(new TodoModel(UUID.randomUUID().toString(), "Rikke", "Cleaning", new Date(System.currentTimeMillis() / 1000), true));
+        todos.add(new TodoModel(UUID.randomUUID().toString(), "Leonora", "Walk the dog", new Date(System.currentTimeMillis() / 500), false));
+        todos.add(new TodoModel(UUID.randomUUID().toString(), "Elvira", "Change diaper", new Date(System.currentTimeMillis() / 200), true));
     }
 
     public List<TodoModel> findAll() {
