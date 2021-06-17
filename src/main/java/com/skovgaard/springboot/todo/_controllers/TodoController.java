@@ -36,9 +36,8 @@ public class TodoController {
         return todoHardcodedService.findById(id);
     }
 
-    @DeleteMapping("/users/{username}/todos/{id}")
+    @DeleteMapping("/users/todos/{id}")
     public Optional<TodoModel> deleteTodo(
-        @PathVariable String username,
         @PathVariable String id
     ) {
         return ofNullable(todoHardcodedService.deleteById(id));
