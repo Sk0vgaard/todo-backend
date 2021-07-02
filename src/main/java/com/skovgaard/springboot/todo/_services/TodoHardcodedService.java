@@ -1,28 +1,35 @@
 package com.skovgaard.springboot.todo._services;
 
-import com.skovgaard.springboot.todo._models.TodoModel;
+import com.skovgaard.springboot.todo._models.Todo;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+import static com.skovgaard.springboot.todo._models.TodoStatus.*;
+
 @Service
 public class TodoHardcodedService {
 
-    private static List<TodoModel> todos = new ArrayList<>();
+    private static List<Todo> todos = new ArrayList<>();
 
     static {
-        todos.add(new TodoModel(UUID.randomUUID().toString(), "Skovgaard", "Finish this course", new Date(), false));
-        todos.add(new TodoModel(UUID.randomUUID().toString(), "Rikke", "Cleaning", new Date(System.currentTimeMillis() / 1000), true));
-        todos.add(new TodoModel(UUID.randomUUID().toString(), "Leonora", "Walk the dog", new Date(System.currentTimeMillis() / 500), false));
-        todos.add(new TodoModel(UUID.randomUUID().toString(), "Elvira", "Change diaper", new Date(System.currentTimeMillis() / 200), true));
+        todos.add(new Todo(UUID.randomUUID().toString(), "Skovgaard", "Finish this course", new Date(), false, AVAILABLE));
+        todos.add(new Todo(UUID.randomUUID().toString(), "Rikke", "Cleaning", new Date(System.currentTimeMillis() / 1000), true, NOT_AVAILABLE));
+        todos.add(new Todo(UUID.randomUUID().toString(), "Leonora", "Walk the dog", new Date(System.currentTimeMillis() / 500), false, CURRENTLY_DOING));
+        todos.add(new Todo(UUID.randomUUID().toString(), "Elvira", "Change diaper", new Date(System.currentTimeMillis() / 200), true, READY));
     }
 
-    public List<TodoModel> findAll() {
+    public List<Todo> findAll() {
+        try {
+            Thread.sleep(1 * 1000);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }
         return todos;
     }
 
-    public TodoModel deleteById(String id) {
-        TodoModel todo = findById(id);
+    public Todo deleteById(String id) {
+        Todo todo = findById(id);
 
         if (todo != null) {
             todos.remove(todo);
@@ -32,8 +39,8 @@ public class TodoHardcodedService {
         }
     }
 
-    public TodoModel findById(String id) {
-        for(TodoModel todo: todos) {
+    public Todo findById(String id) {
+        for(Todo todo: todos) {
             if (todo.getId().equals(id)) {
                 return todo;
             }

@@ -3,19 +3,21 @@ package com.skovgaard.springboot.todo._models;
 import java.util.Date;
 import java.util.Objects;
 
-public class TodoModel {
+public class Todo {
     private String id;
     private String username;
     private String description;
     private Date targetDate;
     private boolean isDone;
+    private TodoStatus todoStatus;
 
-    public TodoModel(String id, String username, String description, Date targetDate, boolean isDone) {
+    public Todo(String id, String username, String description, Date targetDate, boolean isDone, TodoStatus todoStatus) {
         this.id = id;
         this.username = username;
         this.description = description;
         this.targetDate = targetDate;
         this.isDone = isDone;
+        this.todoStatus = todoStatus;
     }
 
     public String getId() {
@@ -58,11 +60,19 @@ public class TodoModel {
         isDone = done;
     }
 
+    public TodoStatus getTodoStatus() {
+        return todoStatus;
+    }
+
+    public void setTodoStatus(TodoStatus todoStatus) {
+        this.todoStatus = todoStatus;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TodoModel todo = (TodoModel) o;
+        Todo todo = (Todo) o;
         return Objects.equals(id, todo.id);
     }
 
